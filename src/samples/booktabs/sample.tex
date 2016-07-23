@@ -1,0 +1,67 @@
+﻿\documentclass[a4j,11pt,papersize]{jsarticle}
+\usepackage{booktabs}
+\begin{document}
+
+\begin{table}[htbp]
+ \begin{center}
+  \caption{日本人ごのみ}
+  \begin{tabular}{|l||l|l|}
+   \hline
+   名称   & 型番  & 個数 \\
+   \hline \hline
+   たわし & TWS01 & 1000 \\
+   \hline
+   石鹸   & SP01  & 5000 \\
+   \hline
+  \end{tabular}
+ \end{center}
+\end{table}
+
+\begin{table}[htbp]
+\begin{center}
+ \caption{スマートでイージー}
+ \begin{tabular}{lll}
+ \hline
+ 名称   & 型番  & 個数 \\
+ \hline
+ たわし & TWS01 & 1000 \\
+ 石鹸   & SP01  & 5000 \\
+ \hline
+\end{tabular}
+\end{center} 
+\end{table}
+
+\begin{table}[htbp]
+ \begin{center}
+  \caption{\textsf{booktabs}を使った例}
+  \begin{tabular}{lll}
+   \toprule
+   品名 & 番号 & 個数 \\
+   \midrule
+   たわし & 02A & 3 \\
+   雑巾   & 55B & 2 \\
+   傘     & X2B & 5 \\
+   \bottomrule
+  \end{tabular}
+ \end{center} 
+\end{table}
+
+\begin{table}[htbp]
+ \begin{center}
+  \caption{中罫線がある場合}
+  \begin{tabular}{lll}
+   \toprule
+   \multicolumn{2}{c}{項目} & \\
+   \cmidrule{1-2}
+   品名 & 型番 & 個数\\
+   \midrule
+   たわし & 02A & 3 \\
+   雑巾   & 55B & 2 \\
+   傘     & X2B & 5 \\
+   \bottomrule
+  \end{tabular}
+ \end{center}
+\end{table}
+
+
+\end{document}

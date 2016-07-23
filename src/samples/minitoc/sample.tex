@@ -1,0 +1,55 @@
+﻿%
+% 最低でもページ番号を正しく目次 (小目次を含む) に反映させるには
+% 3 回のタイプセットが必要。
+%
+\documentclass[a4j,11pt,papersize]{jsbook}
+\usepackage{minitoc}
+\def\mtctitle{小目次}
+\def\mlftitle{小図目次}
+\def\mlttitle{小表目次}
+\setcounter{tocdepth}{1}% 目次には 節レベルまで出力
+\setcounter{secnumdepth}{3}% 番号付けの深さ
+\setcounter{minitocdepth}{3}% 小目次には 少々節レベルまで出力
+
+\makeatletter
+% 適当な間隔で適当な見出しを出力する命令 \fakesections
+\newcommand\fakesections{%
+  \section{ありゃりゃ \thechapter}%
+    \@tempcnta=\z@
+    \@whilenum \@tempcnta<5\do{%
+        \subsection{ぽよよん \@arabic\@tempcnta}%
+        \@tempcntb=\z@
+        \@whilenum \@tempcntb<15\do{%
+	   \subsubsection{どよよん \@arabic\@tempcntb}%
+           \advance\@tempcntb\@ne
+        }%
+	\clearpage
+        \advance\@tempcnta\@ne
+    }%
+  \section{こりゃりゃ \thechapter}%
+  \section{どうしたの \thechapter}%
+}
+\makeatother
+
+\begin{document}
+
+\frontmatter
+
+\dominitoc% 小目次の作成 (必須)
+\tableofcontents
+
+\mainmatter
+
+\chapter{序論}
+\minitoc
+\fakesections
+
+\chapter{本論}
+\minitoc
+\fakesections
+
+\chapter{結論}
+\minitoc
+\fakesections
+
+\end{document}

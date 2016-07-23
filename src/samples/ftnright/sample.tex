@@ -1,0 +1,19 @@
+﻿\documentclass[twocolumn]{jsarticle}
+% \footnoterule の定義を保存
+\let\origfootnoterule\footnoterule
+\usepackage{ftnright}
+\global\let\footnoterule\origfootnoterule
+\usepackage{ifthen}
+\newcounter{hoge}
+\newcommand\hoge[1][1000]{\whiledo{\value{hoge}<#1}{%
+  \stepcounter{hoge}ほげ}\footnote{脚注なり。}。\setcounter{hoge}{0}}
+\gdef\footnoterule{\kern-3pt \hrule width .4\columnwidth \kern 2.6pt}
+\begin{document}
+\author{An Author}
+\title{A Title}
+\maketitle
+\section{はじめの節}
+\hoge[50] \hoge[50] \hoge[70] \hoge[100]
+\section{次の節}
+\hoge \hoge[20] \hoge[30] \hoge[50]
+\end{document}

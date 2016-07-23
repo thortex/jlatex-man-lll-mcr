@@ -1,0 +1,83 @@
+﻿% 函館 太郎の論文 (jsarticle)
+\begin{filecontents*}{001_Taro_Hakodate.tex}
+\part{函館太郎}
+\author{函館太郎}
+\title{超正方形の研究とその成果}
+\maketitle
+\nocite{person99}
+\bibliographystyle{jplain}
+\bibliography{001_Taro_Hakodate}
+\end{filecontents*}
+% 函館太郎の参考文献データベース
+\begin{filecontents*}{001_Taro_Hakodate.bib}
+@Book{person99,
+  author =	 {The Person},
+  title = 	 {The Title},
+  publisher = 	 {The Press.},
+  year = 	 1999
+}
+\end{filecontents*}
+
+% 未来 花子の論文 (jsarticle)
+\begin{filecontents*}{002_Hanako_Mirai.tex}
+\part{未来花子}  
+\author{未来花子}
+\title{超平面の研究とその成果}
+\maketitle
+\nocite{person99}
+\bibliographystyle{jplain}
+\bibliography{002_Hanako_Mirai}
+\end{filecontents*}
+% 未来 花子の参考文献データベース
+\begin{filecontents*}{002_Hanako_Mirai.bib}
+@Book{person99,
+  author =	 {Any Person},
+  title = 	 {Any Title},
+  publisher = 	 {Any Press.},
+  year = 	 1999
+}
+\end{filecontents*}
+
+% 北海 道夫の論文 (jsarticle)
+\begin{filecontents*}{003_Michio_Hokkai.tex}
+\part{北海道夫}
+\author{北海道夫}
+\title{道南と漁業}
+\maketitle
+\nocite{person99}
+\bibliographystyle{jplain}
+\bibliography{003_Michio_Hokkai}
+\end{filecontents*}
+% 北海 道夫の参考文献データベース
+\begin{filecontents*}{003_Michio_Hokkai.bib}
+@Book{person99,
+  author =	 {A Person},
+  title = 	 {A Title},
+  publisher = 	 {A Press.},
+  year = 	 1999
+}
+\end{filecontents*}
+
+\documentclass[a4j,11pt,papersize]{jsbook}
+% to get chapterbib ,go CTAN 
+% /macros/latex/contrib/cite/{chapterbib,cite,overcite,drftcite}.sty
+\usepackage{chapterbib}
+\begin{document}
+\author{なんとか学会}
+\title{どこぞの予稿論文集}
+\date{\today}
+% 論文集そのものの表題
+\maketitle
+% 各々の著者用の \maketitle の体裁
+\makeatletter
+\def\maketitle{\thispagestyle{plainhead}%
+  \centerline{\@author}\centerline{\large\@title}}
+\def\author#1{\def\@author{#1}}
+\def\title#1{\def\@title{#1}}
+\makeatother
+% 目次
+\tableofcontents
+\include{001_Taro_Hakodate}
+\include{002_Hanako_Mirai}
+\include{003_Michio_Hokkai}
+\end{document}

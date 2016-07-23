@@ -1,0 +1,17 @@
+﻿\documentclass{jsarticle}
+\usepackage{at,makeidx}
+\newatcommand sec[1]{\section{#1}}
+\newatcommand ssec[1]{\subsection{#1}}
+\newatcommand sssec[1]{\subsubsection{#1}}
+\makeindex
+\newatcommand showindex{\printindex}
+\atdef|#1|{\texttt{#1}}
+\begin{document}
+@sec{ほげ}
+@/hogehoge/ @@
+@ssec{ほげほげ}
+@*hogehoge*
+@sssec{ほげほげほげ}
+@|TypeWriter|, Hoge@i{hoge} is @I{hoge}.
+@showindex
+\end{document}

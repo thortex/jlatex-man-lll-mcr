@@ -1,0 +1,41 @@
+﻿\documentclass{jsarticle}
+\usepackage{delarray}
+\begin{document}
+
+\begin{displaymath}
+\begin{array}({cc})
+ a_{11} & a_{12} \\
+ a_{21} & a_{22} \\
+\end{array}
+\end{displaymath}
+
+\begin{displaymath}
+f(x) = 
+\begin{array}\{{ll}.
+ 1  & \mathrm{if}\  x > 0. \\
+ 0  & \mathrm{if}\  x = 0. \\
+ -1 & \mathrm{if}\  x < 0. \\
+\end{array}
+\end{displaymath}
+
+\newcolumntype{L}{>{$}l<{$}}
+\begin{displaymath}
+ f(x) =
+\begin{array}\{{lL}.
+ 1   & if $x > 0$. \\
+ 0  & if $x = 0$. \\
+ -1 & if $x < 0$. \\
+\end{array}
+\end{displaymath}
+
+\newcommand\hoge[1][]{\begin{array}[#1] (c) 
+  1\\2\\3 \end{array}}
+\newcommand\geho[1][]{\left( \begin{array}
+ [#1]{c} 1\\2\\3 \end{array}\right)}
+
+\begin{displaymath}
+ \hoge[t] \hoge[c] \hoge[b] \neq
+ \geho[t] \geho[c] \geho[b]
+\end{displaymath}
+
+\end{document}

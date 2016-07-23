@@ -1,0 +1,33 @@
+﻿\documentclass[a4j,10pt,papersize]{jsarticle}
+\usepackage{multirow}
+\begin{document}
+ \begin{center}
+  \begin{tabular}{|l|l|l|}
+   \hline
+   \multicolumn{2}{|c|}{新商品} & 旧商品 \\
+   \hline
+  なべ & やかん & たわし \\
+   \hline
+  \end{tabular}
+  \begin{tabular}{|l|l|}
+   \hline
+   \multirow{2}*{新商品}
+     & なべ \\
+     & やかん \\
+   \hline
+   旧商品 & たわし \\
+   \hline
+  \end{tabular}
+  \begin{tabular}{|c|l|}
+   \hline
+   \multirow{4}{1zw}{新商品}
+     & なべ \\
+     & やかん \\
+     & コップ\\
+     & 洗剤 \\
+   \hline
+   旧商品  & たわし \\
+   \hline
+  \end{tabular}
+\end{center}
+\end{document}

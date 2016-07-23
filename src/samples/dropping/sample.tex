@@ -1,0 +1,16 @@
+﻿\documentclass{jarticle}
+\usepackage{dropping,ifthen}
+\makeatletter
+\newcounter{hoge}
+\newcommand\hoge[1][1000]{%
+    \setcounter{hoge}{0}%
+   \whiledo{\value{hoge}<#1}{\stepcounter{hoge}ほげ}。%
+}
+\makeatother
+\begin{document}
+\section{頭文字がでかい}
+\dropping{3}{\sffamily{} This} is a very 
+ simple sample file fordropping package. 
+`Hoge' is hoge \hoge.
+
+\end{document}

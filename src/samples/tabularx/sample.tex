@@ -1,0 +1,29 @@
+﻿\documentclass[a4j,10pt,papersize]{jsarticle}
+\usepackage{tabularx}
+\makeatletter
+\def\hoge{\@tempcnta=\z@ \@whilenum \@tempcnta<10\do{%
+   ほげほげ\advance\@tempcnta\@ne}。}
+\makeatother
+\begin{document}
+\hoge%
+ \begin{center}
+  \begin{tabularx}{\linewidth}{|X|X|X|}
+   \hline
+   \hoge & \hoge & \hoge \\
+   \hline
+  \end{tabularx}
+ \end{center}
+\hoge%
+\begin{center}
+ \begin{tabularx}{\linewidth}{|r|l|X|l|X|}
+  \hline
+  商品   & 値段 & 説明  & 型番 & 補足事項 \\
+  \hline
+  鍋     &  500 & \hoge & 59A  & \hoge    \\
+  \hline
+  やかん &  300 & \hoge & 9JA  & \hoge    \\
+  \hline
+ \end{tabularx}
+\end{center}
+\hoge%
+\end{document}

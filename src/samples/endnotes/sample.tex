@@ -1,0 +1,13 @@
+﻿\documentclass{jsbook}
+\usepackage{endnotes}
+\def\notesname{注釈}
+\begin{document}
+ほげほげ\endnote{ほげほげとはほげほげなのでほげである。}
+%
+\newpage% ここから注釈のページのはじまり
+\begingroup
+\parindent = 0pt
+\def\enotesize{\normalsize}
+\theendnotes
+\endgroup 
+\end{document}

@@ -1,0 +1,19 @@
+﻿\documentclass[a4j,11pt,papersize]{jsarticle}
+\usepackage{afterpage,graphicx}
+\begin{document}
+
+\newcommand*\checkcnt[1]{\texttt{#1} $=$ 
+   \expandafter\the\csname c@#1\endcsname} 
+\checkcnt{topnumber}\par
+\checkcnt{bottomnumber}\par
+\checkcnt{totalnumber}\par
+\newcommand*\checkcmd[1]{\texttt{\string#1} $=$ #1}
+\checkcmd{\topfraction}\par
+\checkcmd{\bottomfraction}\par
+\checkcmd{\textfraction}\par
+\checkcmd{\floatpagefraction}
+
+\renewcommand\topfraction{0.85}
+\addtocounter{topnumber}{2}
+
+\end{document}

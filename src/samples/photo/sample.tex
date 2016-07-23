@@ -1,0 +1,33 @@
+﻿\documentclass[a4j,11pt,papersize,draft]{jsarticle}
+\usepackage[shortlop,under]{photo}
+\def\photoname{写真}
+\def\listphotoname{写真一覧}
+\oecaptionsep  0pt
+\parskip   = 1zw
+\newcommand\myphoto{\fbox{ここに写真がはいるはず\rule{30zw}{0pt}}}
+\begin{document}
+\parindent = 0zw
+%
+\listofphotos\clearpage
+%
+\begin{photo}[htbp]
+ \begin{center}
+  \myphoto% 写真の要素
+  \caption{写真の見出し\label{ph:hoge}}
+ \end{center}
+\end{photo}
+%
+\putphoto{ph:foo}{}{\myphoto}[これはちょっとした例]{これはちょっとした例なんだ けど、
+見出しがながーくなると自動的にあっちにふらふら}
+\par
+\phref{ph:hoge}とか \Phref{ph:foo} などなど。
+\par
+\putphoto[icu]{ph:piyo}{}{\myphoto}{位置を指定する}
+\par
+\begin{Photo}{ph:bar}{}{これも例}
+ \myphoto
+\end{Photo}
+\renewcommand\myphoto{\fbox{ここに写真がはいる\rule{0pt}{9zw}}}
+\par\noindent\putphoto[l]{ph:lhoge}{}{\myphoto}{位置を指定する}
+\par\noindent\putphoto[r]{ph:rhoge}{}{\myphoto}{位置を指定する}
+\end{document}

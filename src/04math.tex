@@ -1,0 +1,84 @@
+﻿\chapter{数式}
+
+\section{数式の太字\texorpdfstring{\zdash}{---}\Y{bm}}
+\zindind{数式}{の太字}
+
+\Z{数式}中で太字を指定したいときに \C{boldmath} とか \Z{AMS} のパッケージのコマンドを
+使うことも考えられますが、 \ppl{David Carlisle}と \ppl{Frank Mittelbach}による
+\Y{bm} パッケージを使う手もあります。
+\begin{inputex}
+\usepackage{bm}
+$a \neq \bm{a}$, $\alpha \neq \bm{\alpha}$ 
+\end{inputex}
+などとすれば、\C{bm} で指定された引数の部分が太字になります。ローマン体
+で\Z{太字}という場合は
+\begin{inputex}
+1 $\mathrm{\bm{a}}$
+2 $\bm{\mathrm{a}}$
+3 $\mathrm{\bm{{a}}}$ 
+\end{inputex}
+の三つがあれば、2 と 3 が正しい記述になります。
+アクセントや括弧のあるような数式を \C{bm} で次のようにするとアクセントも
+`abc' も太字にされます。
+\begin{InOut}
+$\bm{\hat{a}}, \bm{\overbrace{abc}}$ 
+\end{InOut}
+大きさ可変の括弧は太字の書体がないので、これ以上変わり様がありません。
+アクセントに関しては次のようにすれば、アクセントだけが太字にされます。
+\begin{InOut}
+$\bm{\hat}{a} \neq \bm{\hat{a}}$ 
+\end{InOut} 
+
+
+
+\section{括弧付の行列\texorpdfstring{\zdash}{---}\Y{delarray}}
+
+数式において行列などを表すときに括弧をおぎなうのが結構面倒です。自分でマ
+クロを書いたり、 \AmSLaTeX のマクロを借りる方法もありますが、シンプルな
+方法として \ppl{David Carlisle}の \Y{delarray} (delemiter array) パッケー
+ジを用いることもあります。次のようにすると \C{left(} \C{right)} を補った
+場合と同様な括弧づけになります。
+\begin{InOut}
+\usepackage{delarray}
+$\begin{array}({cc})
+ a_{11} & a_{12} \\
+ a_{21} & a_{22} \\
+\end{array}$
+\end{InOut}
+次のように場合分けのときにも使えます。
+\begin{InOut}
+$f(x) = 
+\begin{array}\{{ll}.
+ 1  & \mathrm{if}\  x > 0. \\
+ 0  & \mathrm{if}\  x = 0. \\
+ -1 & \mathrm{if}\  x < 0. \\
+\end{array}$
+\end{InOut}
+上記のようにしなくとも、新たに列指定子を宣言して、次のようにもできます。
+\begin{InOut}
+\usepackage{delarray}
+\newcolumntype{L}{>{$}l<{$}}
+\begin{displaymath}
+ f(x) =
+\begin{array}\{{lL}.
+ 1   & if $x > 0$. \\
+ 0  & if $x = 0$. \\
+ -1 & if $x < 0$. \\
+\end{array}
+\end{displaymath} 
+\end{InOut}
+さらに位置指定を行なう任意引数に関しても、次のような改良が加えられています
+(出力結果を吟味してください)。
+\begin{InOut}
+\usepackage{delarray}
+\newcommand\hoge[1][]{\begin{array}[#1] (c) 
+  1\\2\\3 \end{array}}
+\newcommand\geho[1][]{\left( \begin{array}
+ [#1]{c} 1\\2\\3 \end{array}\right)}
+ \begin{displaymath}
+  \hoge[t] \hoge[c] \hoge[b] \neq
+  \geho[t] \geho[c] \geho[b]
+ \end{displaymath}
+\end{InOut}
+
+

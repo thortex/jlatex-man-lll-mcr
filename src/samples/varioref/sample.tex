@@ -1,0 +1,46 @@
+﻿\documentclass[a4j,11pt,papersize]{jsarticle}
+\usepackage{varioref}
+\makeatletter
+% 日本語用の設定
+\def\reftextfaceafter{\reftextvario{見開き}{次}ページ}%
+\def\reftextfacebefore{\reftextvario{見開き}{前}ページ}%
+\def\reftextafter{\reftextvario{以後の}{次}ページ}%
+\def\reftextbefore{\reftextvario{前}{以前の}ページ}%
+\def\reftextcurrent{\reftextvario{この}{現在の}ページ}%
+\def\reftextfaraway#1{\pageref{#1}ページ}%
+\def\reftextpagerange#1#2{\pageref{#1}〜\pageref{#2}ページ}%
+\def\reftextlabelrange#1#2{\ref{#1}〜\ref{#2}}%
+%
+\DeclareRobustCommand\vref{\@ifstar{\let\vref@space\relax\my@vr@f}%
+   {\let\vref@space\nobreakspace\my@vr@f}}
+\def\my@vr@f{\@ifnextchar[{\vr@f}{\vr@f[\@empty]}}
+\def\vr@f[#1]#2{\leavevmode\unskip \vref@space 
+   \@vpageref[\unskip]{#2}#1~\ref{#2}%
+}
+\def\vrefrange{\@ifnextchar[{\@vrefrange}{\@vrefrange[\@empty]}}
+\def\@vrefrange[#1]#2#3{%
+   \vpagerefrange{#2}{#3}#1~\reftextlabelrange{#2}{#3}}
+\makeatother
+%
+\begin{document}
+\section{ほげ}\label{sec:hoge}
+ほげほげ~\ref{sec:hoge}、ほげ。
+\newpage
+\section{げほ}\label{sec:geho}
+\vref[\S]{sec:hoge}とか、げほ。\par
+\vref[図]{fig:dame2}は図だそうだ。\par
+\vpageref{sec:hoge}ってどうよ。
+\vrefrange[図]{fig:dame1}{fig:dame3}もあるぞ。\par
+\vpagerefrange{fig:dame1}{fig:dame3}もあるぞ。\par
+\newpage
+\section{だめ}\label{sec:dame}
+\begin{figure}[htbp]
+\caption{図\label{fig:dame1}}
+\end{figure}
+\begin{figure}[htbp]
+\caption{図\label{fig:dame2}}
+\end{figure}
+\begin{figure}[htbp]
+\caption{図\label{fig:dame3}}
+\end{figure}
+\end{document}

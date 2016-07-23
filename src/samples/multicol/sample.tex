@@ -1,0 +1,61 @@
+﻿\documentclass[a4j,10pt,papersize]{jsarticle}
+\newcommand*\mypict{\setlength\unitlength{1pt}%
+  \begin{picture}(40,40)%
+    \put(20,20){\circle*{10}}%
+    \put(20,20){\circle{20}}%
+  \end{picture}}%
+\usepackage{multicol}
+\columnseprule=.4pt
+\columnsep=2zw
+\multicolsep=1zw
+\makeatletter
+\def\myfigure{\vbox\bgroup\centering\def\@captype{figure}}
+\def\mytable{\vbox\bgroup\centering\def\@captype{table}}
+\def\endmyfigure{\egroup}
+\def\endmytable{\egroup}
+\def\hoge{\@tempcnta=\z@ \@whilenum \@tempcnta<100\do{%
+   ほげほげ\advance\@tempcnta\@ne}。}
+\makeatother
+\begin{document}
+\hoge
+\begin{multicols}{3}
+\hoge
+\begin{equation}
+ f(x)  = ax +b
+\end{equation}
+\hoge
+\begin{figure*}[tb]
+\centering\mypict
+\caption{普通の\texttt{figure}環境での図だよ}
+\end{figure*}
+\hoge
+\begin{myfigure}
+ \mypict
+ \caption{\texttt{multicols}環境中の図だよ}
+\end{myfigure}
+\hoge
+\begin{mytable}
+\begin{small}
+  \caption{\texttt{multicols}環境中の表だよ}
+ \begin{tabular}{lll}
+ \hline
+ \LaTeX & \LaTeXe& \LaTeX\,3\\
+ \hline
+ \end{tabular}
+\end{small}
+\end{mytable}
+\hoge
+\end{multicols}
+\hoge
+\begin{multicols}{4}[\section{新聞記事とか色々あるけどねぇ、どうだろう。}]
+\hoge
+\end{multicols}
+\hoge
+\begin{multicols}{5}
+\hoge\par \hoge
+\end{multicols}
+\hoge 
+\begin{multicols}{7}
+\hoge\par \hoge
+\end{multicols}
+\end{document}

@@ -1,0 +1,23 @@
+﻿\documentclass{jarticle}
+\usepackage{enumerate}
+\usepackage{okumacro}
+\begin{document}
+\begin{enumerate}[{例題} 1]
+  \item\label{exe:a} ほげほげ。
+   \begin{enumerate}[{問題 \ref{exe:a}}-1]
+    \item これはどうかな。
+    \item それはどうです。
+   \end{enumerate}
+  \item ありゃま。
+  \item こりゃま。
+\end{enumerate}
+
+\begin{enumerate}
+\renewcommand\labelenumi{\MARU{\arabic{enumi}}}
+\item \TeX
+\item \LaTeX\,2.09
+\item \LaTeXe
+\item \LaTeX\,3
+\end{enumerate} 
+
+\end{document}

@@ -1,0 +1,61 @@
+﻿\documentclass[a4j,11pt,papersize]{jsarticle}
+\usepackage{longtable}
+\newcommand\hoge[1][0]{%
+  醤油 #1-0 & 32892378923894832894 & 1000 \\%
+  醤油 #1-1 & 32892378923894832894 & 1000 \\%
+  醤油 #1-2 & 32892378923894832894 & 1000 \\%
+  醤油 #1-3 & 32892378923894832894 & 1000 \\%
+  醤油 #1-4 & 32892378923894832894 & 1000 \\%
+  醤油 #1-5 & 32892378923894832894 & 1000 \\%
+  醤油 #1-6 & 32892378923894832894 & 1000 \\%
+  醤油 #1-7 & 32892378923894832894 & 1000 \\%
+  醤油 #1-8 & 32892378923894832894 & 1000 \\%
+  醤油 #1-9 & 32892378923894832894 & 1000 \\%
+}
+\begin{document}
+% 表の幅を取得するために \jobname.aux に longtable パッケージは
+% 情報を書き出し、2 回目以上のタイプセットで幅をそろえる。
+%
+\newcommand\mytablehead{\hline 商品 & 番号 & 個数 \\}
+\begin{longtable}{|l|l|l|}
+% 表の最初のページの上部にだけ表示する行の終わり
+\caption{長いながーい表\label{tab:longtable}}
+\endfirsthead
+%
+% 行がページを跨ぐとき、各ページの上部に表示する行の終わり
+\hline
+\multicolumn{3}{|c|}{前ページの表の続きです。}\\
+\mytablehead
+\hline
+\endhead
+%
+% 行がページを跨ぐとき、各ページの下部に表示する行の終わり
+\hline
+\multicolumn{3}{|c|}{この表の続きが次ページにあります。}\\
+\hline
+\endfoot
+%
+% 表の最後のページの下部だけに表示する行の終わり
+\multicolumn{3}{|c|}{これでこの表は終わりです。}\\
+\hline
+\endlastfoot
+%
+% 実際の表の始まり
+\mytablehead
+\hline
+\hoge[1]
+\hoge[2]
+\hoge[3]
+\hoge[4]
+\hoge[5]
+\hoge[6]
+\hoge[7]
+\hoge[8]
+\hoge[9]
+\hoge[10]
+\hoge[11]
+\hoge[12]
+\hoge[13]
+\hline
+\end{longtable}
+\end{document}
